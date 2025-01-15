@@ -10,16 +10,7 @@ const { title } = Astro.props;
 ---
 
 <script>
-    // Code added to script tag will be loaded as client side code
-    // While code in the `---` block above will only run server side during build time
-    import JSConfetti from "js-confetti";
-
-    if (!window.location.host.includes("localhost") && !window.location.host.includes("127.0.0.1")) {
-        const confetti = new JSConfetti();
-        setInterval(() => {
-            confetti.addConfetti();
-        }, 1000);
-    }
+    // add script here
 </script>
 
 <!doctype html>
@@ -28,7 +19,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/legoIndyJones.ico" />
+    <link rel="icon" type="image/x-icon" href="/skywalker_snow.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
