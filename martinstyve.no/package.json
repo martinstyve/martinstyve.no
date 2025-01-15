@@ -1,14 +1,18 @@
 {
-  "name": "curved-centauri",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "martinstyve.no",
+  "version": "1.0.0",
+  "description": "```sh npm create astro@latest -- --template basics ```",
+  "main": "index.js",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "astro dev"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
-    "astro": "^5.1.6"
+    "astro": "^5.1.7",
+    "js-confetti": "^0.12.0"
   }
 }
