@@ -5,14 +5,18 @@ import Layout from "../../components/Layout.astro";
 <Layout title="Home-lab">
   <section class="project-section">
     <h1>Home-lab</h1>
-    <p>Summers 2025</p>
     <img src="/project_photos/dataserver.png" alt="Photo of laptop" class="large-project-image" />
     <div class="project-description">
-      <p>Obs! Todo write description</p>
-    </div>
+      <p>
+        I repurposed an old HP EliteBook as a dedicated <strong>Ubuntu Server</strong>, turning it into the core of my home-lab.  
+        The server runs <strong>Apache</strong> for web hosting and <strong>Nextcloud</strong> with a <strong>MariaDB</strong> backend, providing a secure private cloud solution for storing and syncing files (photos, documents, media) across my devices.  
+        I also configured <strong>custom subdomains</strong> with HTTPS using Let's Encrypt, allowing me to self-host tools and web apps accessible from anywhere.  
+        This project gave me hands-on experience with server administration, networking, SSL certificates, and cloud storage infrastructure.
+      </p>
     </div>
   </section>
 </Layout>
+
 
 <style>
   .project-section {
