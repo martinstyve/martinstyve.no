@@ -2,21 +2,19 @@
 import Layout from "../../components/Layout.astro";
 ---
 
-<Layout title="Fartskalkulator">
+<Layout title="Statistics for Strava">
   <section class="project-section">
-    <h1>Online Running Pace Calculator</h1>
-    <img src="/project_photos/fartskalkulator.png" alt="screenshot of website" class="large-project-image" />
+    <h1>Statistics for Strava</h1>
+    <img src="/project_photos/statistics-for-strava.png" alt="screenshot of website" class="large-project-image" />
     <div class="project-description">
       <p>
-        I built this simple <strong>React-based web app</strong> in a single day because I couldn't find a good online running pace calculator 😅  
+        Self-hosted analysis page for my strava activities. Publicly available on <a href="https://strava.martinstyve.no/" target="_blank">strava.martinstyve.no</a>
       </p>
       <p>
-        The project also served as a practical way for me to <strong>learn React</strong> and experiment with <strong>self-hosting web apps</strong> on my personal Ubuntu server.  
-        I configured a dedicated subdomain, <strong>fartskalkulator.martinstyve.no</strong>, and deployed the app using <strong>Apache</strong> with HTTPS enabled via Let's Encrypt.
-      </p>
-      <p>
-        Try it live here:  
-        <a href="https://fartskalkulator.martinstyve.no/" target="_blank">fartskalkulator.martinstyve.no</a>
+        Playing around with activity data using the Strava API has been a long-running (pun intended) side project for me, but creating a comprehensive analytics platform
+        from scratch always felt too large to complete. So when I stumbled upon the open-source project <a href="https://github.com/robiningelbrecht/statistics-for-strava" target="_blank">github.com/robiningelbrecht/statistics-for-strava</a>,
+        I decided to give it a shot. Having some, but not enough experience with Docker, I was excited to set up a Docker environment on my server to run this application and access it through the web.
+        I have done some local development to get a feel for how to work on larger projects, and because I wanted to do some minor adjustments, which helped me understand how the project is set up.
       </p>
     </div>
   </section>
@@ -46,12 +44,12 @@ import Layout from "../../components/Layout.astro";
   a {
   color: #1e90ff; /* Standard blue color */
   text-decoration: underline;
-  }
+}
 
-  a:hover {
-    color: #63b3ff; /* Lighter blue on hover */
-    text-decoration: underline;
-  }
+a:hover {
+  color: #63b3ff; /* Lighter blue on hover */
+  text-decoration: underline;
+}
 
   .large-project-image {
     width: 100%; 
