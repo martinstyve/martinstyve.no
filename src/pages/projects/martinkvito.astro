@@ -1,0 +1,89 @@
+---
+import Layout from "../../components/Layout.astro";
+---
+
+<Layout title="Martinkvito">
+  <section class="project-section">
+    <h1>Martinkvito</h1>
+    <img src="/project_photos/martinkvito.png" alt="screenshot of website" class="large-project-image" />
+    <div class="project-description">
+    
+    <p>Available on <a href="https://kvito.martinstyve.no/" target="_blank">kvito.martinstyve.no</a>. Source code can be found on my <a href="https://github.com/martinstyve/martinkvito" target="_blank">Github</a></p>
+      
+    <p>Made as a pitch for friends at <a href="https://www.studentbergen.no/studentorganisasjoner/inkogvito-linjeforening-for-kognitiv-vitenskap-ved-uib/" target="_blank">Inkogvito</a>. to get their own website and webkom.
+        Tech stack is primarily Next.js and Sanity, inspired by <a href="https://github.com/Project-insert-name/root-website" target="_blank">Root linjeforening</a>. Site is self hosted.</p>
+
+    <p>Project is split in two parts. A static blog page which can be viewed by visiting the site, and a "studio" site, <a href="https://martinkvito.sanity.studio" target="_blank">martinkvito.sanity.studio</a> where anyone (with access) can create and modify blog posts without ever touching the code base.</p>
+    </div>
+  </section>
+</Layout>
+<style>
+  .project-section {
+    padding: 4rem 1rem;
+    background-color: #1e1e24;
+    color: #f1f1f1;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #5DD5FF;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #c4c4c4;
+    margin-bottom: 1rem;
+  }
+
+  a {
+  color: #1e90ff; /* Standard blue color */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #63b3ff; /* Lighter blue on hover */
+  text-decoration: underline;
+}
+
+  .large-project-image {
+    width: 100%; 
+    height: auto;
+    max-width: 400px;
+    border-radius: 8px; 
+    margin-bottom: 2rem; 
+  }
+
+  .project-description {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .project-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Space between the logos */
+  }
+
+  .logo-link {
+    width: 80px; /* Adjust the logo size */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-link:hover {
+    filter: opacity(0.8) drop-shadow(0 0 10px #5DD5FF);
+    transform: scale(1.1); /* Scale up the logo on hover */
+  }
+
+  @media (max-width: 768px) {
+    .large-project-image {
+      max-width: 100%; /* Allow the image to be responsive */
+    }
+
+    .project-section {
+      padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    }
+  }
+</style>
