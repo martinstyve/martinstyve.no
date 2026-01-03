@@ -6,7 +6,7 @@ import Layout from "../components/Layout.astro";
   <!-- For host; how to build  'git remote set-url origin git@github.com:martinstyve/martinstyve.github.io.git', 'npm run build', 'npm run deploy' -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="typewriter">Hi, I'm Martin</h1>
+      <h1 class="typewriter">Hello World!</h1>
     </div>
   </section>
 
@@ -15,14 +15,16 @@ import Layout from "../components/Layout.astro";
   </div>
 
   <div class="grid-container">
-    <a href="https://www.uib.no/studier/BAMN-DTEK" class="grid-item">
-      <img src="/logos/UiB_logo.png" alt="University Icon" class="icon" />
-      <p>Student at University of Bergen</p>
-    </a>
-    <a href="https://www4.uib.no/emner/inf113" class="grid-item">
+    <a href="https://www4.uib.no/emner/inf112" class="grid-item">
       <img src="/logos/UiB_logo.png" alt="Tutor Icon" class="icon" />
       <p>Teaching Assistant at University of Bergen</p>
     </a>
+
+    <a href="https://www.uib.no/studier/BAMN-DTEK" class="grid-item">
+      <img src="/logos/UiB_logo.png" alt="University Icon" class="icon" />
+      <p>CS Student at University of Bergen</p>
+    </a>
+
     <a href="https://fribyte.no/" class="grid-item">
       <img src="/logos/FriByte_logo.svg" alt="friByte Icon" class="icon" />
       <p>Financial Manager at friByte</p>
@@ -37,17 +39,17 @@ import Layout from "../components/Layout.astro";
     justify-content: center;
     align-items: center;
     height: 30vh;
-    background: linear-gradient(125deg, #1c1d23, #949090ba);
+    background: linear-gradient(125deg, #1c1d23, #2c2f3a);
     color: #f1f1f1;
     padding: 2rem;
     margin-top: 1rem;
     border-radius: 0.25rem;
     text-align: center;
   }
-  
+
   .hero-content {
     max-width: 700px;
-    width: 100%
+    width: 100%;
   }
 
   .typewriter {
@@ -58,8 +60,10 @@ import Layout from "../components/Layout.astro";
     border-right: 2px solid #f1f1f1;
     white-space: nowrap;
     overflow: hidden;
-    max-width: fit-content; 
-    animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+    max-width: fit-content;
+    animation:
+      typing 3s steps(40, end) forwards,
+      blink-caret 0.75s step-end infinite;
   }
 
   .hero-subtitle {
@@ -70,13 +74,22 @@ import Layout from "../components/Layout.astro";
   }
 
   @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
   }
 
   @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #f1f1f1; }
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #f1f1f1;
+    }
   }
 
   /* Image Section */
@@ -112,11 +125,11 @@ import Layout from "../components/Layout.astro";
     background: #2c2f3a;
     padding: 1.5rem;
     border-radius: 12px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     color: inherit;
-    display: block; /* Make the entire grid-item clickable */
+    display: block;
   }
 
   .grid-item:hover {
@@ -127,10 +140,19 @@ import Layout from "../components/Layout.astro";
   .icon {
     width: 60px;
     margin-bottom: 1rem;
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .grid-item:hover .icon {
+    filter: drop-shadow(0 0 1px #5DD5FF) drop-shadow(0 0 8px #5DD5FF) brightness(1);
+    /* filter: opacity(0.8) drop-shadow(0 0 10px #5dd5ff); */
+    transform: scale(1.1);
   }
 
   a {
-    text-decoration: none; 
+    text-decoration: none;
     color: inherit;
   }
 
