@@ -1,159 +1,430 @@
 ---
 import Layout from "../components/Layout.astro";
+
+interface Project {
+  title: string;
+  slug: string;
+  description: string;
+  date: string;
+  technologies: string[];
+  category: "personal" | "academic";
+  featured?: boolean;
+  course?: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Home-lab",
+    slug: "homelab",
+    description: "Ubuntu server setup with Apache, Nextcloud, MariaDB, and Let's Encrypt HTTPS for self-hosted cloud storage and web apps",
+    date: "Summer 2025",
+    technologies: ["Ubuntu", "Apache", "Nextcloud", "MariaDB", "Linux", "Networking"],
+    category: "personal",
+    featured: true,
+  },
+  {
+    title: "Self-hosted Nextcloud for storage",
+    slug: "cloudstorage",
+    description: "Secure private cloud solution for storing and syncing files across devices with custom domain configuration",
+    date: "Summer 2025",
+    technologies: ["Nextcloud", "Docker", "Server Administration", "Cloud"],
+    category: "personal",
+  },
+  {
+    title: "Martinkvito (blog site)",
+    slug: "martinkvito",
+    description: "Personal blog platform for sharing thoughts and experiences",
+    date: "Fall 2025",
+    technologies: ["Web Development", "Astro", "Responsive Design"],
+    category: "personal",
+  },
+  {
+    title: "Statistics for Strava",
+    slug: "statistics-for-strava",
+    description: "Analytics tool for Strava running data visualization and performance tracking",
+    date: "Fall 2025",
+    technologies: ["Web Development", "Data Visualization", "APIs"],
+    category: "personal",
+  },
+  {
+    title: "Online Running pace calculator",
+    slug: "fartskalkulator",
+    description: "Utility tool for calculating running pace and performance metrics",
+    date: "Summer 2025",
+    technologies: ["Web Development", "JavaScript", "Responsive Design"],
+    category: "personal",
+  },
+  {
+    title: "GhostFighter Go",
+    slug: "ghostfightergo",
+    description: "Team-developed Java game built using OOP principles. Gained experience with Git collaboration, project methodologies, and software lifecycle management",
+    date: "Spring 2025",
+    course: "Introduction to Systems Development (INF112)",
+    technologies: ["Java", "OOP", "Game Development", "Git", "Team Lead"],
+    category: "academic",
+    featured: true,
+  },
+  {
+    title: "2048 Game",
+    slug: "2048",
+    description: "Object-oriented game implementation demonstrating core OOP principles and Java game mechanics",
+    date: "Spring 2024",
+    course: "Advanced Programming (INF101)",
+    technologies: ["Java", "OOP", "Game Development"],
+    category: "academic",
+  },
+  {
+    title: "Tetris",
+    slug: "tetris",
+    description: "Classic Tetris implementation showcasing game state management and user interaction handling",
+    date: "Spring 2024",
+    course: "Advanced Programming (INF101)",
+    technologies: ["Java", "OOP", "Game Development"],
+    category: "academic",
+  },
+];
+
+const personalProjects = projects.filter((p) => p.category === "personal");
+const academicProjects = projects.filter((p) => p.category === "academic");
 ---
+
 <Layout title="Projects">
-  <!-- <section class="projects-section"> -->
-    <h1>Personal projects</h1>
-    <div class="projects-container">
+  <div class="projects-wrapper">
+    <!-- Header Section -->
+    <section class="projects-header">
+      <h1>My Projects</h1>
+      <p class="subtitle">A showcase of personal and academic projects showcasing my development journey</p>
+    </section>
 
-      <div class="project-card">
-        <a href="/projects/homelab" class="project-link">
-          <h2>Home-lab</h2>
-          <p>Summer 2025</p>
-        </a>
+    <!-- Personal Projects Section -->
+    <section class="projects-section">
+      <div class="section-header">
+        <h2>Personal Projects</h2>
+        <p class="section-description">Side projects and self-hosted solutions</p>
       </div>
-
-      <div class="project-card">
-        <a href="/projects/cloudstorage" class="project-link">
-          <h2>Self-hosted Nextcloud for storage</h2>
-          <p>Summer 2025</p>
-        </a>
+      <div class="projects-grid">
+        {
+          personalProjects.map((project) => (
+            <a href={`/projects/${project.slug}`} class="project-card">
+              <div class="card-header">
+                <h3>{project.title}</h3>
+                {project.featured && <span class="featured-badge">Featured</span>}
+              </div>
+              <p class="card-description">{project.description}</p>
+              <div class="card-meta">
+                <span class="date">{project.date}</span>
+              </div>
+              <div class="technologies">
+                {project.technologies.map((tech) => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+              <div class="card-footer">
+                <span class="read-more">View Project →</span>
+              </div>
+            </a>
+          ))
+        }
       </div>
-      
-      <div class="project-card">
-        <a href="/projects/martinkvito" class="project-link">
-          <h2>Martinkvito (blog site)</h2>
-          <p>Fall 2025</p>
-        </a>
+    </section>
+
+    <!-- Academic Projects Section -->
+    <section class="projects-section">
+      <div class="section-header">
+        <h2>Academic Projects</h2>
+        <p class="section-description">University coursework and team projects</p>
       </div>
-
-      <div class="project-card">
-        <a href="/projects/statistics-for-strava" class="project-link">
-          <h2>Statistics for Strava</h2>
-          <p>Fall 2025</p>
-        </a>
+      <div class="projects-grid">
+        {
+          academicProjects.map((project) => (
+            <a href={`/projects/${project.slug}`} class="project-card">
+              <div class="card-header">
+                <h3>{project.title}</h3>
+                {project.featured && <span class="featured-badge">Featured</span>}
+              </div>
+              {project.course && <p class="course">{project.course}</p>}
+              <p class="card-description">{project.description}</p>
+              <div class="card-meta">
+                <span class="date">{project.date}</span>
+              </div>
+              <div class="technologies">
+                {project.technologies.map((tech) => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+              <div class="card-footer">
+                <span class="read-more">View Project →</span>
+              </div>
+            </a>
+          ))
+        }
       </div>
-
-      <div class="project-card">
-        <a href="/projects/fartskalkulator" class="project-link">
-          <h2>Online Running pace calculator</h2>
-          <p>Summer 2025</p>
-        </a>
-      </div>
-
-    </div>
-  <!-- </section> -->
-
-  <section class="school-projects">
-    <h1>School Projects</h1>
-    <div class="projects-container">
-
-      <div class="project-card">
-        <a href="/projects/ghostfightergo" class="project-link">
-          <h2>GhostFighter Go (Team lead)</h2>
-          <p>Introduction to Systems Development (INF112)</p>
-          <p>Spring 2025</p>
-        </a>
-      </div>
-
-      <div class="project-card">
-        <a href="/projects/2048" class="project-link">
-          <h2>2048 Game</h2>
-          <p>Advanced Programming (INF101)</p>
-          <p>Spring 2024</p>
-        </a>
-      </div>
-
-      <div class="project-card">
-        <a href="/projects/tetris" class="project-link">
-          <h2>Tetris</h2>
-          <p>Advanced Programming (INF101)</p>
-          <p>Spring 2024</p>
-        </a>
-      </div>
-
-    </div>
-  </section>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  /* Not active */
-  /* .projects-section {
-    padding: 4rem 1rem;
-    background-color: #1e1e24;
-    color: #f1f1f1;
+  .projects-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Header Section */
+  .projects-header {
     text-align: center;
+    padding: 4rem 1rem 3rem;
     margin-bottom: 2rem;
-  } */
+  }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+  .projects-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
     color: #5DD5FF;
+    font-weight: 700;
+    letter-spacing: -1px;
   }
 
-  h2 {
-    text-align: center;
+  .subtitle {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin: 0;
   }
 
-  p {
-    text-align: center;
+  /* Section Styling */
+  .projects-section {
+    margin-bottom: 5rem;
+    padding: 0 1rem;
   }
 
-  .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    color: #5DD5FF;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .section-description {
+    font-size: 1rem;
+    color: #888;
+    margin: 0;
+  }
+
+  /* Grid Layout */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 2rem;
   }
 
+  /* Project Card */
   .project-card {
-    background-color: #2c2f3a;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #2c2f3a 0%, #252839 100%);
+    border: 1px solid rgba(93, 213, 255, 0.1);
     border-radius: 12px;
-    width: 300px;
-    text-align: left;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at top right,
+      rgba(93, 213, 255, 0.05),
+      transparent
+    );
+    pointer-events: none;
   }
 
   .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    border-color: rgba(93, 213, 255, 0.3);
+    box-shadow: 0 12px 32px rgba(93, 213, 255, 0.1),
+                0 0 20px rgba(93, 213, 255, 0.05);
   }
 
-  .project-card h2 {
-    font-size: 1.75rem;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
     margin-bottom: 1rem;
-    color: #5DD5FF;
+    position: relative;
+    z-index: 1;
   }
 
-  .project-card p {
+  .project-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 600;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .featured-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #5DD5FF, #96F7FF);
+    color: #1c1d23;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .course {
+    font-size: 0.9rem;
+    color: #96F7FF;
+    margin: 0 0 0.75rem 0;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-description {
     font-size: 1rem;
     color: #c4c4c4;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .date {
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  /* Technologies */
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
-  .project-link {
-    display: block; /* Make the link block-level */
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
-    height: 100%; /* Ensure the link covers the full height */
+  .tech-tag {
+    display: inline-block;
+    background: rgba(93, 213, 255, 0.1);
+    color: #96F7FF;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(93, 213, 255, 0.2);
+    transition: all 0.2s ease;
   }
 
-  .project-link:hover {
-    color: #96F7FF; /* Change color on hover */
+  .project-card:hover .tech-tag {
+    background: rgba(93, 213, 255, 0.15);
+    border-color: rgba(93, 213, 255, 0.4);
   }
 
+  .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .read-more {
+    font-size: 0.95rem;
+    color: #5DD5FF;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .project-card:hover .read-more {
+    color: #96F7FF;
+    transform: translateX(4px);
+  }
+
+  /* Responsive Design */
   @media (max-width: 768px) {
-    .projects-container {
-      flex-direction: column;
-      align-items: center;
+    .projects-header h1 {
+      font-size: 2.5rem;
+      padding: 2rem 1rem 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
     }
 
     .project-card {
-      width: 100%;
-      max-width: 500px;
+      padding: 1.5rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .projects-header {
+      padding: 2rem 1rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .projects-header h1 {
+      font-size: 2rem;
+    }
+
+    .projects-section {
+      margin-bottom: 3rem;
+      padding: 0 0.5rem;
+    }
+
+    .project-card {
+      padding: 1.25rem;
+    }
+
+    .featured-badge {
+      font-size: 0.65rem;
+      padding: 0.3rem 0.6rem;
     }
   }
 </style>
