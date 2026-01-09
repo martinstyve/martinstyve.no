@@ -3,82 +3,231 @@ import Layout from "../../components/Layout.astro";
 ---
 
 <Layout title="2048 Game">
-  <section class="project-section">
-    <h1>2048 Game</h1>
-    <p>Objektorientert programmering (INF101)</p>
-    <p>April 2024</p>
-    <img src="/project_photos/2048_photo.jpg" alt="2048 Game Screenshot" class="large-project-image" />
-    <div class="project-description">
-      <p>Assignment Spring 2024 in OOP class to develop your own game using OOP principles in java.</p>
-    </div>
-    <div class="project-links">
-      <a href="https://youtu.be/OZbWxmrUGqw" target="_blank">
-        <img src="/logos/yt_logo_text.png" alt="Youtube Demo" class="logo-link" />
-      <!-- <a href="https://github.com/martinstyve/2048game" target="_blank">
-        <img src="/logos/GitHub_logo_text.png" alt="Github" class="logo-link" /> -->
-      </a>
-      </a>
-    </div>
-  </section>
+  <div class="project-wrapper">
+    <section class="project-header">
+      <h1>2048 Game</h1>
+      <div class="project-meta">
+        <span class="course">Advanced Programming (INF101)</span>
+        <span class="date">April 2024</span>
+      </div>
+    </section>
+
+    <section class="project-content">
+      <div class="content-grid">
+        <div class="image-section">
+          <img 
+            src="/project_photos/2048_photo.jpg" 
+            alt="2048 Game Screenshot" 
+            class="project-image" 
+          />
+        </div>
+        
+        <div class="description-section">
+          <h2>Project Overview</h2>
+          <p>
+            This was a Spring 2024 assignment in the OOP class where I developed a complete 2048 game from scratch using Object-Oriented Programming principles in Java. The project involved designing game mechanics, implementing responsive controls, and managing game state through well-structured classes.
+          </p>
+          
+          <div class="tech-stack">
+            <h3>Technologies Used</h3>
+            <div class="tech-tags">
+              <span class="tag">Java</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Game Development</span>
+            </div>
+          </div>
+
+          <div class="project-links">
+            <a href="https://youtu.be/OZbWxmrUGqw" target="_blank" class="link-button">
+              <img src="/logos/yt_logo_text.png" alt="Youtube Demo" class="logo-link" />
+              <span>Watch Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
-  .project-section {
-    padding: 4rem 1rem;
-    background-color: #1e1e24;
-    color: #f1f1f1;
-    text-align: center;
+  .project-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
   }
 
-  h1 {
-    font-size: 2.5rem;
+  .project-header {
+    padding: 4rem 1rem 2rem;
+    text-align: center;
+    border-bottom: 2px solid rgba(93, 213, 255, 0.1);
+  }
+
+  .project-header h1 {
+    font-size: 3rem;
     margin-bottom: 1rem;
     color: #5DD5FF;
+    font-weight: 700;
+    letter-spacing: -1px;
   }
 
-  p {
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .course {
+    color: #96F7FF;
+    font-weight: 500;
+  }
+
+  .date {
+    color: #888;
+  }
+
+  .project-content {
+    padding: 3rem 1rem;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    border-radius: 12px;
+    border: 2px solid rgba(93, 213, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(93, 213, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .project-image:hover {
+    border-color: rgba(93, 213, 255, 0.4);
+    box-shadow: 0 12px 48px rgba(93, 213, 255, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .description-section h2 {
+    font-size: 1.75rem;
+    color: #5DD5FF;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .description-section p {
     font-size: 1rem;
     color: #c4c4c4;
-    margin-bottom: 1rem;
-  }
-
-  .large-project-image {
-    width: 100%; 
-    height: auto;
-    max-width: 350px;
-    border-radius: 8px; 
-    margin-bottom: 2rem; 
-  }
-
-  .project-description {
+    line-height: 1.8;
     margin-bottom: 2rem;
-    font-size: 1.1rem;
+  }
+
+  .tech-stack {
+    margin-bottom: 2rem;
+  }
+
+  .tech-stack h3 {
+    font-size: 1rem;
+    color: #96F7FF;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(93, 213, 255, 0.1);
+    color: #96F7FF;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(93, 213, 255, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .tag:hover {
+    background: rgba(93, 213, 255, 0.15);
+    border-color: rgba(93, 213, 255, 0.4);
   }
 
   .project-links {
     display: flex;
-    justify-content: center;
-    gap: 2rem; /* Space between the logos */
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .link-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(93, 213, 255, 0.2), rgba(93, 213, 255, 0.05));
+    border: 2px solid rgba(93, 213, 255, 0.3);
+    color: #5DD5FF;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .link-button:hover {
+    background: linear-gradient(135deg, rgba(93, 213, 255, 0.3), rgba(93, 213, 255, 0.1));
+    border-color: rgba(93, 213, 255, 0.5);
+    color: #96F7FF;
+    transform: translateX(4px);
   }
 
   .logo-link {
-    width: 80px; /* Adjust the logo size */
+    width: 24px;
     height: auto;
-    transition: transform 0.3s ease;
-  }
-
-  .logo-link:hover {
-    filter: opacity(0.8) drop-shadow(0 0 10px #5DD5FF);
-    transform: scale(1.1); /* Scale up the logo on hover */
   }
 
   @media (max-width: 768px) {
-    .large-project-image {
-      max-width: 100%; /* Allow the image to be responsive */
+    .project-header h1 {
+      font-size: 2rem;
     }
 
-    .project-section {
-      padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    .project-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .project-content {
+      padding: 2rem 1rem;
+    }
+
+    .description-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .description-section p {
+      font-size: 0.95rem;
     }
   }
 </style>
