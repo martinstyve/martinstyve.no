@@ -2,148 +2,345 @@
 import Layout from "../components/Layout.astro";
 ---
 
-<Layout title="My Journey">
+<Layout title="About | Martin Styve Pedersens">
+  <div class="about-wrapper">
+    <!-- Header Section -->
+    <section class="about-header">
+      <h1>Martin Styve Pedersen</h1>
+      <p class="subtitle">📍 Bergen, Norway</p>
+    </section>
 
-  <div class="about-section">
-    <h1>About Me</h1>
-    <p>
-      I am from Nittedal, currently on my 3rd year studying Informatics: Computer Technology at the University of Bergen!
-      <p></p>
-    </p>
+    <!-- Work Experience Section -->
+    <section class="resume-section">
+      <div class="section-header">
+        <h2>Work Experience</h2>
+      </div>
+
+      <div class="entry-card">
+        <div class="card-content">
+          <div class="card-header">
+            <h3>Teaching Assistant</h3>
+            <span class="period">August 2024 - Present</span>
+          </div>
+          <p class="organization">University of Bergen</p>
+          <p class="description">
+            Led group sessions, supervised programming projects and graded
+            submissions in multiple courses while studying at UiB.
+          </p>
+          <ul class="course-list">
+            <li>Spring 2026: Introduction to Systems Development</li>
+            <li>Fall 2025: Introduction to Operating Systems</li>
+            <li>Spring 2025: Advanced Programming</li>
+            <li>Fall 2024: Introduction to Programming</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry-card">
+        <div class="card-content">
+          <div class="card-header">
+            <h3>Financial Manager</h3>
+            <span class="period">August 2025 - Present</span>
+          </div>
+          <p class="organization">FriByte - Student Organization</p>
+          <p class="description">
+            Manage finances for FriByte and IT operations for student organizations and internal web services. Assisted in organizing hackathons and Bergen Open Source Conference. Been a member since August 2024.
+          </p>
+        </div>
+        <img src="public/gallery/boskonf-kode24.png" class="entry-image">
+      </div>
+
+      <div class="entry-card">
+        <div class="card-content">
+          <div class="card-header">
+            <h3>Service Worker / Mechanic</h3>
+            <span class="period">March 2023 - August 2023</span>
+          </div>
+          <p class="organization">Equipo - Construction Rental Services</p>
+          <p class="description">
+            Performed technical repairs and maintenance on construction machinery
+            and company facilities, while handling customer relations.
+          </p>
+        </div>
+        <img src="public/photo_year/2023.png" class="entry-image">
+      </div>
+
+      <div class="entry-card">
+        <div class="card-content">
+          <div class="card-header">
+            <h3>Machine Gunner</h3>
+            <span class="period">January 2022 - December 2022</span>
+          </div>
+          <p class="organization">
+            Norwegian Armed Forces - 2nd Battalion, Skjold Garnison
+          </p>
+          <p class="description">
+            Completed compulsory military service for the Norwegian Armed Forces.
+          </p>
+        </div>
+        <img src="public/photo_year/2022.jpg" class="entry-image">
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="resume-section">
+      <div class="section-header">
+        <h2>Education</h2>
+      </div>
+
+      <div class="entry-card">
+        <div class="card-content">
+          <div class="card-header">
+            <h3>Bachelor of Science in Informatics: Computer Technology</h3>
+            <span class="period">August 2023 - June 2026</span>
+          </div>
+          <p class="organization">University of Bergen</p>
+          <p class="description">
+            Course work includes: Data Structures and Algorithm, Operating
+            Systems, Machine Learning
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
-
-  <div class="timeline-section">
-
-    <hr>
-    <!-- Year 2026 -->
-    <section class="year-section">
-      <div class="year-content">
-        <h2>2026</h2>
-        <!-- <p>Having a blast</p> -->
-      </div>
-      <img src="/photo_year/2026.jpg" class="year-image" />
-    </section>
-
-    <!-- Year 2025 -->
-    <section class="year-section">
-      <div class="year-content">
-        <h2>2025</h2>
-        <!-- <p>On my fourth semester of studies, gradually getting a solid grasp of Computer Technology as I dive deeper into my studies. I'm also a student assistant in the course Advanced Programming this spring semester and am really enjoying it!</p> -->
-      </div>
-      <img src="/photo_year/2025.jpg" class="year-image" />
-    </section>
-
-    <!-- Year 2024 -->
-    <section class="year-section">
-      <div class="year-content">
-        <h2>2024</h2>
-        <!-- <p>Landed on my feet in Bergen whilst studying Computer Technology at UiB. Started working as a student assistant in the course Introduction to Programming in the fall</p> -->
-      </div>
-      <img src="/photo_year/2024.jpg" class="year-image" />
-    </section>
-
-    <!-- Year 2023 -->
-    <section class="year-section">
-      <div class="year-content">
-        <h2>2023</h2>
-          <!-- <p>Worked at Equipo and had a blast there - before starting at University of Bergen in August, had a blast there too!</p> -->
-      </div>
-      <img src="/photo_year/2023.png" class="year-image" />
-    </section>
-
-    <!-- Year 2022 -->
-    <section class="year-section">
-      <div class="year-content">
-        <h2>2022</h2>
-        <!-- <p>Spent the year as a machine gunner in the 2nd battalion at Skjold Camp, Indre Troms</p> -->
-      </div>
-      <img src="/photo_year/2022.jpg" class="year-image" />
-    </section>
-
-    <!-- Year 2021 -->
-    <section class="year-section">
-      <div class="year-content">
-        <h2>2021</h2>
-        <!-- <p>Finished high school and spent the fall working at Posten and prepared for compulsory military service in January 2022</p> -->
-      </div>
-      <img src="/photo_year/2021.jpg" class="year-image" />
-    </section>
-  </div>
-
-  <!-- Photo Gallery at the Bottom 
-  <div class="gallery-section">
-    <hr>
-    <h1>Photo Gallery</h1>
-    <div class="gallery">
-      <img src="/gallery/1.jpg" class="gallery-item" />
-      <img src="/gallery/2.jpg" class="gallery-item" />
-      <img src="/gallery/3.jpg" class="gallery-item" />
-      <img src="/gallery/4.jpg" class="gallery-item" />
-      <img src="/gallery/5.jpg" class="gallery-item" />
-      <img src="/gallery/6.jpg" class="gallery-item" />
-      <img src="/gallery/7.jpg" class="gallery-item" />
-      <img src="/gallery/8.jpg" class="gallery-item" />
-      <img src="/gallery/9.jpg" class="gallery-item" />
-    </div>
-  </div>
-  -->
 </Layout>
 
 <style>
-
-  h2 {
-    font-size: 3rem;
-    color: #5DD5FF;
-  }
-  .timeline-section {
-    margin: 2rem 0;
-    max-width: 900px;
-    margin: auto;
+  .about-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
   }
 
-  .year-section {
+  /* Header Section */
+  .about-header {
+    text-align: center;
+    padding: 4rem 1rem 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #5dd5ff;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin: 0;
+  }
+
+  /* Section Styling */
+  .resume-section {
+    margin-bottom: 5rem;
+    padding: 0 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    color: #5dd5ff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* Entry Card */
+  .entry-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    background: linear-gradient(135deg, #2c2f3a 0%, #252839 100%);
+    border: 1px solid rgba(93, 213, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    text-align: center; 
-    margin-bottom: 2rem;
-}
-
-  .year-content {
-      margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
-  .year-image {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
+  .entry-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at top right,
+      rgba(93, 213, 255, 0.05),
+      transparent
+    );
+    pointer-events: none;
+  }
 
-  .gallery-section {
-    margin: 6rem 0; 
+  .entry-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(93, 213, 255, 0.3);
+    box-shadow:
+      0 12px 32px rgba(93, 213, 255, 0.1),
+      0 0 20px rgba(93, 213, 255, 0.05);
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem; 
-    padding: 2rem;
-    max-width: 900px;
-    margin: auto;
+  .entry-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.3;
   }
 
-  .gallery-item {
-    width: 100%;
+  .period {
+    font-weight: 600;
+    color: #5dd5ff;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .organization {
+    font-style: italic;
+    color: #96f7ff;
+    margin: 0 0 1rem 0;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .description {
+    font-size: 1rem;
+    color: #c4c4c4;
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .course-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1rem 0 0 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .course-list li {
+    padding: 0.5rem 0;
+    color: #c4c4c4;
+    line-height: 1.6;
+  }
+
+  .course-list b {
+    color: #5dd5ff;
+    font-weight: 600;
+  }
+
+  /* Photo Styling */
+  .entry-image {
+    width: 300px;
+    height: auto;
     border-radius: 8px;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
     object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
   }
 
-  .gallery-item:hover {
+  .entry-image:hover {
+    opacity: 1;
     transform: scale(1.05);
   }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-header h1 {
+      font-size: 2.5rem;
+      padding: 2rem 1rem 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .resume-section {
+      margin-bottom: 3rem;
+      padding: 0 0.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
+    }
+
+    .entry-card {
+      padding: 1.5rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .entry-image {
+      width: 120px;
+      margin-top: 1rem;
+    }
+
+    .entry-card h3 {
+      font-size: 1.35rem;
+      text-align: center;
+    }
+
+    .card-header {
+      gap: 0.5rem;
+    }
+
+    .description {
+      font-size: 0.95rem;
+    }
+
+    .course-list li {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-header {
+      padding: 2rem 1rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-header h1 {
+      font-size: 2rem;
+    }
+
+    .entry-card {
+      padding: 1.25rem;
+    }
+  }
+
 </style>
