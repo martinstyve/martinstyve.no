@@ -6,7 +6,28 @@ import Layout from "../components/Layout.astro";
   <!-- For host; how to build  'git remote set-url origin git@github.com:martinstyve/martinstyve.github.io.git', 'npm run build', 'npm run deploy' -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="typewriter">Hello World!</h1>
+      <div class="countdown-container">
+        <div class="countdown-item">
+          <div class="countdown-number" id="months">0</div>
+          <div class="countdown-label">months</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="days">0</div>
+          <div class="countdown-label">days</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours">0</div>
+          <div class="countdown-label">hours</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes">0</div>
+          <div class="countdown-label">minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="seconds">0</div>
+          <div class="countdown-label">seconds</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -52,44 +73,35 @@ import Layout from "../components/Layout.astro";
     width: 100%;
   }
 
-  .typewriter {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    display: inline-block;
-    border-right: 2px solid #f1f1f1;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: fit-content;
-    animation:
-      typing 3s steps(40, end) forwards,
-      blink-caret 0.75s step-end infinite;
+  .countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
-  .hero-subtitle {
-    font-size: 1.5rem;
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #5dd5ff;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .countdown-label {
+    font-size: 0.9rem;
     color: #f1f1f1;
-    margin-top: 1rem;
     opacity: 0.8;
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink-caret {
-    from,
-    to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #f1f1f1;
-    }
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   /* Image Section */
@@ -146,7 +158,8 @@ import Layout from "../components/Layout.astro";
   }
 
   .grid-item:hover .icon {
-    filter: drop-shadow(0 0 1px #5DD5FF) drop-shadow(0 0 8px #5DD5FF) brightness(1);
+    filter: drop-shadow(0 0 1px #5dd5ff) drop-shadow(0 0 8px #5dd5ff)
+      brightness(1);
     /* filter: opacity(0.8) drop-shadow(0 0 10px #5dd5ff); */
     transform: scale(1.1);
   }
@@ -157,16 +170,50 @@ import Layout from "../components/Layout.astro";
   }
 
   @media (max-width: 768px) {
-    .typewriter {
-      font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-    }
-
     .grid-item {
       padding: 1rem;
     }
   }
 </style>
+
+<script>
+  function updateCountdown() {
+    // Target date: June 11th, 2026 at 11:00 AM (timezone adjusted)
+    const targetDate = new Date(2026, 5, 11, 12, 0, 0).getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    const monthsEl = document.getElementById("months");
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (difference <= 0) {
+      if (monthsEl) monthsEl.textContent = "0";
+      if (daysEl) daysEl.textContent = "0";
+      if (hoursEl) hoursEl.textContent = "0";
+      if (minutesEl) minutesEl.textContent = "0";
+      if (secondsEl) secondsEl.textContent = "0";
+      return;
+    }
+
+    const seconds = Math.floor((difference / 1000) % 60);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const days = Math.floor((difference / (1000 * 60 * 60 * 24)) % 30);
+    const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30));
+
+    if (monthsEl) monthsEl.textContent = String(months);
+    if (daysEl) daysEl.textContent = String(days);
+    if (hoursEl) hoursEl.textContent = String(hours);
+    if (minutesEl) minutesEl.textContent = String(minutes);
+    if (secondsEl) secondsEl.textContent = String(seconds);
+  }
+
+  // Update countdown immediately on page load
+  updateCountdown();
+
+  // Update countdown every second
+  setInterval(updateCountdown, 1000);
+</script>
