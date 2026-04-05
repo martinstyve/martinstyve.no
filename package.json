@@ -9,15 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
     "@vercel/analytics": "^1.5.0",
     "astro": "^5.6.1",
-    "next": "^16.1.6",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "react-snowfall": "^2.4.0",
-    "snowfall": "^2.1.0"
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
   }
 }

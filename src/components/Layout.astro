@@ -1,8 +1,7 @@
 ---
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
-import Analytics from "@vercel/analytics/astro";
-import Snowfall from "react-snowfall";
+import Analytics from '@vercel/analytics/astro'
 
 interface Props {
   title: string;
@@ -28,19 +27,6 @@ const { title } = Astro.props;
   <body>
     <!-- env insertion point is where Environment variables for the docker image will be inserted -->
     <noscript id="env-insertion-point"></noscript>
-
-    <!-- Snowfall effect for christmas -->
-    <Snowfall
-      client:load
-      color="#82C3D9"
-      snowflakeCount={200}
-      style={{
-        position: "fixed",
-        width: "100vw",
-        height: "100vh",
-        zIndex: -1 /* Keeps the snow behind your text and buttons */,
-      }}
-    />
 
     <Header />
     <main>
